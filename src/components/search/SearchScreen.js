@@ -11,6 +11,7 @@ export const SearchScreen = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { q = '' } = queryString.parse(location.search);
+  //console.log(queryString.parse(location.search));
 
   const [ { search }, handleInputChange ] = useForm( {
     search:q

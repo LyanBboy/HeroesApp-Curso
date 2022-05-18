@@ -2,6 +2,9 @@ import { useMemo } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { getHeroById } from "../../selectors/getHeroById";
 
+//import batman from '../../assets/dc-robin.jpg';
+const heroImgPath = require.context('../../assets',true); // required usada por webpack
+
 export const HeroesScreen = () => {
 
   const { heroid } = useParams();
@@ -32,7 +35,9 @@ export const HeroesScreen = () => {
     <div className="row mt-5">
       <div className="col-4">
         <img 
-          src={imgPath} 
+          // src={imgPath} 
+          //src={batman}  para uso de recurso staticos
+          src={ heroImgPath(`./${id}.jpg`)} // para uso de recursos dinamicos
           alt={superhero}
           className='img-thumbnail animate__animated animate__fadeInLeft'          
         />
